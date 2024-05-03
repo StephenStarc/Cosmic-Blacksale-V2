@@ -17,6 +17,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Provider } from 'react-redux';
 import { store } from './components/redux/store.jsx';
 import AllProducts from './pages/AllProducts.jsx';
+import ProductDetail from './pages/ProductDetail.jsx';
 
 const router = createBrowserRouter([
   { path: "/", element: <Home/>, errorElement: <ErrorPage />},
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
   { path: "/dashboard", element: <Dashboard/>},
   { path: "/addproduct", element: <AddProducts />},
   { path: "/allproducts", element: <AllProducts />},
+  { path: "/productInfo/:id", element: <ProductDetail />},
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

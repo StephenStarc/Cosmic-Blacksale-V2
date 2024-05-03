@@ -1,27 +1,23 @@
 import { Button } from "@relume_io/relume-ui";
+import { Link } from "react-router-dom";
 
 export default function Hero (props){
-  const { heading, description, buttons, images, images2 } = {
+  const {description, images, images2 } = {
     ...Header76Defaults,
     ...props,
   };
   return (
     <header className="grid grid-cols-1 gap-y-16 pt-16 md:grid-flow-row md:pt-24 lg:grid-flow-col lg:grid-cols-2 lg:items-center lg:pt-0">
       <div className="mx-[5%] max-w-[40rem] justify-self-start lg:ml-[5vw] lg:mr-20 lg:justify-self-end">
-        <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">{heading}</h1>
+        <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">Explore the Universe's Best Deals</h1>
         <p className="md:text-md">{description}</p>
         <div className="mt-6 flex gap-x-4 md:mt-8">
-          {buttons.map((button, index) => (
-            <Button
-              key={`${button.title}-${index}`}
-              variant={button.variant}
-              size={button.size}
-              iconRight={button.iconRight}
-              iconLeft={button.iconLeft}
-            >
-              {button.title}
+          <Link to="/allproducts">
+          <Button variant='primary' 
+                    className="mt-3 hover:bg-white hover:text-black">
+              Browse Our Products
             </Button>
-          ))}
+            </Link>
         </div>
       </div>
       <div className="h-[30rem] overflow-hidden pl-[5vw] pr-[5vw] md:h-[40rem] lg:h-screen lg:pl-0">
@@ -59,17 +55,15 @@ export default function Hero (props){
 };
 
 const Header76Defaults = {
-  heading: "Medium length hero heading goes here",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
-  buttons: [{ title: "Button" }, { title: "Button", variant: "secondary" }],
+    "Dive into a cosmic shopping experience like no other, where you can find anything from galaxies to gadgets. Discover stellar deals and unearth the wonders of the cosmos, right at your fingertips.",
   images: [
     {
       src: '/1.jpg',
       alt: "Placeholder image 1",
     },
     {
-      src: "/2.jpg",
+      src: "/2.webp",
       alt: "Placeholder image 2",
     },
     {
@@ -81,37 +75,37 @@ const Header76Defaults = {
       alt: "Placeholder image 4",
     },
     {
-      src: "/5.png",
+      src: "/5.jpg",
       alt: "Placeholder image 5",
     },
     {
-      src: "/6.png",
+      src: "/6.jpg",
       alt: "Placeholder image 6",
     },
   ],
   images2: [
     {
-      src: '/5.png',
+      src: '/7.png',
       alt: "Placeholder image 1",
     },
     {
-      src: "/4.png",
+      src: "/8.png",
       alt: "Placeholder image 2",
     },
     {
-      src: "/6.png",
+      src: "/9.png",
       alt: "Placeholder image 3",
     },
     {
-      src: "/1.jpg",
+      src: "/12.webp",
       alt: "Placeholder image 4",
     },
     {
-      src: "/2.jpg",
+      src: "/11.png",
       alt: "Placeholder image 5",
     },
     {
-      src: "/3.png",
+      src: "/10.png",
       alt: "Placeholder image 6",
     },
   ],

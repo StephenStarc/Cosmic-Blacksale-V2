@@ -10,9 +10,11 @@ export default function Footer(props){
   return (
     <footer className="px-[5%] py-12 md:py-18 lg:py-20">
       <div className="container">
-        <div className="grid grid-cols-1 items-center justify-center justify-items-center gap-x-[4vw] gap-y-12 pb-12 md:pb-18 lg:grid-cols-[0.25fr_1fr_0.25fr] lg:justify-between lg:gap-y-4 lg:pb-20">
+        <div className="grid grid-cols-1 items-center justify-center justify-items-center gap-x-[4vw] gap-y-12 pb-12 md:pb-18 lg:grid-cols-[0.50fr_1fr_0.25fr] lg:justify-between lg:gap-y-4 lg:pb-20">
           <div className="lg:justify-self-start">
-            <img src={image.src} alt={image.alt} className="inline-block" />
+          <h1 className=' text-3xl font-bold font-playfair text-black text-black-600 '>
+          Cosmic <span className='bg-black text-white'>BlackSale</span>
+          </h1>
           </div>
           {columnLinks.map((column, index) => (
             <ul
@@ -75,7 +77,7 @@ const Footer4Defaults = {
   columnLinks: [
     {
       links: [
-        { title: "Link One", url: "#" },
+        { title: "Github", url: "#" },
         { title: "Link Two", url: "#" },
         { title: "Link Three", url: "#" },
         { title: "Link Four", url: "#" },

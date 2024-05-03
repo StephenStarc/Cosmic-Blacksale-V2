@@ -12,7 +12,7 @@ export default function Navbar(props) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const genericHamburgerLine = `h-0.5 w-6 my-[3px] bg-black transition ease-in-out transform duration-300 lg:hidden`;
   return (
-    <nav className="flex h-auto w-full items-center border-b border-border-primary bg-white lg:min-h-18 lg:px-[5%]">
+    <nav className="flex h-auto w-full items-center bg-white lg:min-h-18 lg:px-[5%]">
       <div className="mx-auto size-full items-center justify-between lg:flex">
         <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
         <Link to='/'>

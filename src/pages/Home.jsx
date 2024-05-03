@@ -3,7 +3,7 @@ import Stats from '../components/Stats'
 import Testimonial from '../components/Testimonials'
 import Hero from '../components/Hero'
 import HomeHeader from '../components/HomeHero'
-import Logos from '../components/Logos'
+
 import Card from '../components/Card'
 import Features from '../components/Features'
 export default function Home(){
@@ -12,12 +12,10 @@ export default function Home(){
     return (
         <>
         <Layout >
-        <HomeHeader />
-        <Logos />
+        <Hero />
         <Card />
         <Testimonial />
         <Features />
-        <Hero />
         <Stats />
         </Layout>
         </>

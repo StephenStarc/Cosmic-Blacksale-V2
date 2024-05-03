@@ -1,6 +1,4 @@
 import Layout from "../components/Layout"
-import Context from "../context/Context"
-import { useContext } from "react"
 import Stats from '../components/Stats'
 import Testimonial from '../components/Testimonials'
 import Hero from '../components/Hero'

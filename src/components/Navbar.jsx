@@ -36,14 +36,15 @@ export default function Navbar() {
             mobileMenuOpen ? "block" : "hidden",
           )}
         >
-        <Link to='/addProduct'>
+        <Link to='/addProduct' className="mr-3">
                   Add Items
                 </Link>
-                <Link to='/allproducts'>
+                <Link to='/allproducts' className="mr-3">
                   All Products
                 </Link>
+                <Link to='/cart' ><FaCartShopping size={25}/></Link>
         </ul>
-        <Link to='/cart'><FaCartShopping /></Link>
+        
       </div>
     </nav>
   );

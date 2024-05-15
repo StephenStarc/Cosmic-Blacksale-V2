@@ -10,8 +10,7 @@ import { useEffect } from "react";
 export default function AllProducts(){
 
   const contextData = useContext(Context)
-const {allProducts} = contextData
-  
+const {allProducts, addToCart} = contextData
 useEffect(()=>{
   window.scrollTo(0, 0);
 },[])
@@ -62,7 +61,9 @@ useEffect(()=>{
                   </div>
                   <h3 className=" text-lg  font-bold md:text-xl">{`Price : $${product.price}`}</h3>
                   <Button variant='secondary' 
-                    className="mt-3 hover:bg-black hover:text-white">
+                    className="mt-3 hover:bg-black hover:text-white"
+                    onClick={()=>addToCart(product)}
+                    >
                 Add to Cart
               </Button>
                 </div>

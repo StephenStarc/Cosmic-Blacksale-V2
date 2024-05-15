@@ -3,7 +3,7 @@ import Context from './Context'
 import { fireDB, auth } from '../firebase/FIrebaseConnect'
 import { getFirestore , collection, onSnapshot, Timestamp, addDoc} from 'firebase/firestore'
 import { toast } from 'react-toastify'
-
+import {addToCart, cartItems} from './CartState'
 
 function ContextProvider(props) {
     
@@ -58,12 +58,12 @@ getProducts()
           });
           
       }catch(err){
-        return toast.error('Opps, Failed During Process')
+        return toast.error('Oops, Failed During Process')
       }
       setProduct('')
     }
   return (
-    <Context.Provider value={{getProducts, product, setProduct, addProduct,allProducts}}>
+    <Context.Provider value={{getProducts, product, setProduct, addProduct,allProducts,addToCart,cartItems}}>
        {props.children}
     </Context.Provider>
   )

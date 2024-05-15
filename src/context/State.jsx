@@ -3,7 +3,7 @@ import Context from './Context'
 import { fireDB, auth } from '../firebase/FIrebaseConnect'
 import { getFirestore , collection, onSnapshot, Timestamp, addDoc} from 'firebase/firestore'
 import { toast } from 'react-toastify'
-import {addToCart, cartItems} from './CartState'
+import {addToCart, cartItems, removeFromCart} from './CartState'
 
 function ContextProvider(props) {
     
@@ -63,7 +63,7 @@ getProducts()
       setProduct('')
     }
   return (
-    <Context.Provider value={{getProducts, product, setProduct, addProduct,allProducts,addToCart,cartItems}}>
+    <Context.Provider value={{getProducts, product, setProduct, addProduct,allProducts,addToCart,cartItems,removeFromCart}}>
        {props.children}
     </Context.Provider>
   )

@@ -27,7 +27,7 @@ export default function Card() {
           {products.map((p) => (
             <div
               className="flex size-full flex-col items-center justify-start border border-border-primary ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-primary focus-visible:ring-offset-2"
-            >
+            key={p.id} >
               <div className="relative w-full overflow-hidden pt-[77%]">
               <Link to={`/productInfo/${p.id}`}>
                 <img

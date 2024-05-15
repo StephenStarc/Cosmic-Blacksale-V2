@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Button, ChevronRight } from "@relume_io/relume-ui";
 import { Link } from "react-router-dom";
+import Context from "../context/Context";
 
 export default function Card() {
   const {products } = {
     ...TopProducts,
-  };
+  }
+
+ const {addToCart} = useContext(Context)
 
   return (
     <section className="px-[5%] mt-16">
@@ -26,14 +29,14 @@ export default function Card() {
         <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-16 lg:grid-cols-3">
           {products.map((p) => (
             <div
-              className="flex size-full flex-col items-center justify-start border border-border-primary ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-primary focus-visible:ring-offset-2"
+              className="flex size-full flex-col items-center justify-start  rounded-xl ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-primary focus-visible:ring-offset-2 "
             key={p.id} >
               <div className="relative w-full overflow-hidden pt-[77%]">
               <Link to={`/productInfo/${p.id}`}>
                 <img
                   src={p.imageUrl}
                   alt={p.title}
-                  className="absolute inset-0 size-full object-cover"
+                  className="absolute inset-0 size-full object-cover rounded-xl"
                 />
                 </Link>
               </div>
@@ -49,8 +52,9 @@ export default function Card() {
                   <h2 className="mb-2 text-xl font-bold md:text-2xl">{p.title}</h2>
                   </Link>
                   <p>{p.shortDescription}</p>
+                  <h3 className=" text-lg  font-bold md:text-xl mt-2 mb-2">{`Price : $${p.price}`}</h3>
                   <Button variant='secondary' 
-                    className="mt-3 hover:bg-black hover:text-white">
+                    className="mt-3 hover:bg-black hover:text-white" onClick={()=>addToCart(p)}>
                 Add to Cart
               </Button>
                 </div>
@@ -76,6 +80,7 @@ const TopProducts = {
       imageUrl: "https://i.ibb.co/25r4kxK/preview-17.webp",
       category: "Sacred Relics/Royal Jewelry",
       shortDescription:"Queen Stephie's Royal Blush Bracelet, adorned with pink diamonds and pearls, exudes regal elegance, fit for a queen.",
+      price:1000000,
     },
     {
       title: "Infernal Masterpiece",
@@ -83,6 +88,7 @@ const TopProducts = {
       imageUrl: "https://i.ibb.co/DtWwWDz/Madness-e18947b4-ca0d-4806-8c6f-f716535cc424.png",
       category: "Demonic Art/Dark Art",
       shortDescription:"The Infernal Masterpiece, a stunning depiction of darkness and beauty, mesmerizes with its haunting imagery, embodying the essence of infernal allure.",
+    price:1800,
     },
     {
       title: "Shadowwing Foal",
@@ -90,6 +96,7 @@ const TopProducts = {
       imageUrl: "https://i.ibb.co/yBXNRz0/Demon-horse-but-f5aa2764-9ed8-4fe7-bd42-a8fd101db2e3.png",
       category: "Mythical Creatures/Beasts",
       shortDescription:"The Shadowwing Foal, with its adorable appearance, features bat wings and tiny horns, blending the innocence of youth with an eerie charm.",
+      price:800,
     },
   ],
 };

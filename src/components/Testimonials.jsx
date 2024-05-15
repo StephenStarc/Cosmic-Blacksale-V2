@@ -10,7 +10,7 @@ export default function Testimonial(props){
   return (
     <section className="px-[5%] py-10  ">
       <div className="container">
-        <div className="mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
+        <div className="mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20 ">
           <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h1>
           <p className="md:text-md">{description}</p>
         </div>
@@ -18,7 +18,7 @@ export default function Testimonial(props){
           {testimonials.map((testimonial, index) => (
             <div
               key={`${testimonial.testimonial}-${index}`}
-              className="mb-8 inline-block w-full border border-border-primary p-6 md:p-8"
+              className="mb-8 inline-block w-full border border-border-primary p-6 md:p-8 rounded-xl"
             >
               <div className="mb-5 md:mb-6">
                 <div className="mb-6 flex">
@@ -41,7 +41,7 @@ export default function Testimonial(props){
                 <div>
                   <p className="font-semibold">{testimonial.name}</p>
                   <p>
-                    {testimonial.companyName}
+                    {testimonial.location}
                   </p>
                 </div>
               </div>
@@ -65,7 +65,7 @@ const Testimonial18Defaults = {
         alt: "Testimonial avatar 1",
       },
       name: "Z'Kranth",
-      companyName: "Centaurus A",
+      location: "Centaurus A",
       numberOfStars: 5,
     },
     {
@@ -76,7 +76,7 @@ const Testimonial18Defaults = {
         alt: "Testimonial avatar 2",
       },
       name: "ｲﾑﾉﾘﾑズﾉ ｲﾑ乇尺ﾶﾘ",
-      companyName: "尺ﾶ尺ﾚ乃 乇",
+      location: "尺ﾶ尺ﾚ乃 乇",
       numberOfStars: 5,
     },
     {
@@ -87,7 +87,7 @@ const Testimonial18Defaults = {
         alt: "Testimonial avatar 3",
       },
       name: "Azazel",
-      companyName: "Malebolge",
+      location: "Malebolge",
       numberOfStars: 5,
     },
     {
@@ -98,8 +98,7 @@ const Testimonial18Defaults = {
         alt: "Testimonial avatar 1",
       },
       name: "ZLORTHRAK",
-      position: "Tisdfske",
-      companyName: "Company name",
+      location: "Tisdfske",
       numberOfStars: 5,
     },
     {
@@ -110,7 +109,7 @@ const Testimonial18Defaults = {
         alt: "Testimonial avatar 2",
       },
       name: "Stephen Starc",
-      companyName: "Milky way Galaxy",
+      location: "Milky way Galaxy",
       numberOfStars: 5,
     },
     {
@@ -121,7 +120,7 @@ const Testimonial18Defaults = {
         alt: "Testimonial avatar 3",
       },
       name: "Morgana",
-      companyName: "Shadowwood Coven",
+      location: "Shadowwood Coven",
       numberOfStars: 5,
     },
   ],

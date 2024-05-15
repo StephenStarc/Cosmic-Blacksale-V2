@@ -34,9 +34,9 @@ useEffect(()=>{
             {allProducts.map((product, index) => (
               <div
                 key={product.id}
-                className="flex size-full flex-col items-center justify-start border border-border-primary rounded ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-primary focus-visible:ring-offset-2"
+                className="flex size-full flex-col items-center justify-start border border-border-primary rounded-xl  ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-primary focus-visible:ring-offset-2"
               >
-                <div className="relative w-full overflow-hidden pt-[90%] overflow-hidden ">
+                <div className="relative w-full overflow-hidden pt-[90%] overflow-hidden rounded-xl ">
                   <Link to={`/productInfo/${product.id}`}>
                   <img
                     src={product.imageUrl}

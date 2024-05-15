@@ -2,7 +2,7 @@ import React from "react";
 import { Facebook, Instagram, X, LinkedIn, YouTube } from "@relume_io/relume-ui";
 
 export default function Footer(props){
-  const { image, footerText, columnLinks, footerLinks, socialMediaLinks } = {
+  const {footerText,footerLinks, socialMediaLinks } = {
     ...Footer4Defaults,
     ...props,
   };
@@ -16,23 +16,13 @@ export default function Footer(props){
           Cosmic <span className='bg-black text-white'>BlackSale</span>
           </h1>
           </div>
-          {columnLinks.map((column, index) => (
-            <ul
-              key={`column-${index}`}
-              className="grid grid-flow-row grid-cols-1 items-start justify-center justify-items-center gap-6 md:grid-flow-col md:grid-cols-[max-content] md:justify-center md:justify-items-start"
-            >
-              {column.links.map((link, linkIndex) => (
-                <li key={`${link.title}-${linkIndex}`} className="font-semibold">
                   <a
-                    href={link.url}
+                    href='/'
                     className="ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-primary focus-visible:ring-offset-2"
                   >
-                    {link.title}
+                    Github
                   </a>
-                </li>
-              ))}
-            </ul>
-          ))}
+
           <div className="flex items-start justify-start justify-items-center gap-x-3 lg:justify-self-end">
             {socialMediaLinks.map((link, index) => (
               <a
@@ -70,21 +60,7 @@ export default function Footer(props){
 };
 
 const Footer4Defaults = {
-  image: {
-    src: "https://relume-assets.s3.amazonaws.com/logo-image.svg",
-    alt: "Logo image",
-  },
-  columnLinks: [
-    {
-      links: [
-        { title: "Github", url: "#" },
-        { title: "Link Two", url: "#" },
-        { title: "Link Three", url: "#" },
-        { title: "Link Four", url: "#" },
-        { title: "Link Five", url: "#" },
-      ],
-    },
-  ],
+
   socialMediaLinks: [
     { title: "Facebook", url: "#", icon: <Facebook /> },
     { title: "Instagram", url: "#", icon: <Instagram /> },
@@ -92,7 +68,7 @@ const Footer4Defaults = {
     { title: "LinkedIn", url: "#", icon: <LinkedIn /> },
     { title: "Youtube", url: "#", icon: <YouTube /> },
   ],
-  footerText: "© 2024 Relume. All rights reserved.",
+  footerText: "© 2024 Cosmic BlackSale. All rights reserved.",
   footerLinks: [
     { title: "Privacy Policy", url: "#" },
     { title: "Terms of Service", url: "#" },

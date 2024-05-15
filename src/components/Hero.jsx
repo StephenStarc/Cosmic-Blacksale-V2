@@ -27,7 +27,7 @@ export default function Hero (props){
               <div key={`${image.src}-${index}`} className="grid size-full grid-cols-1 gap-4">
                 <div className="relative w-full pt-[120%]">
                   <img
-                    className="absolute inset-0 size-full object-cover"
+                    className="absolute inset-0 size-full object-cover rounded-xl"
                     src={image.src}
                     alt={image.alt}
                   />
@@ -40,7 +40,7 @@ export default function Hero (props){
               <div key={`${image.src}-${index}`} className="grid size-full grid-cols-1 gap-4">
                 <div className="relative w-full pt-[120%]">
                   <img
-                    className="absolute inset-0 size-full object-cover"
+                    className="absolute inset-0 size-full object-cover rounded-xl"
                     src={image.src}
                     alt={image.alt}
                   />

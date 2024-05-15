@@ -3,10 +3,43 @@ import Context from './Context'
 import { fireDB, auth } from '../firebase/FIrebaseConnect'
 import { getFirestore , collection, onSnapshot, Timestamp, addDoc} from 'firebase/firestore'
 import { toast } from 'react-toastify'
-import {addToCart, cartItems, removeFromCart} from './CartState'
+
 
 function ContextProvider(props) {
+  
+  const [Cart,setCart] = useState([])
+
+  useEffect(()=>{
+    const cartItems = localStorage.getItem('cosmicBlacksaleCart') ? JSON.parse(localStorage.getItem('cosmicBlacksaleCart')) : {products:[]}
+    setCart(cartItems)
+  },[])
+
+  function addDecimal(value){
+    return (Math.round(value * 100)/100).toFixed(2)
+}
+
+function addToCart(item) {
+    const excitingItem = Cart.products.find((i) => i.id === item.id)
+    if(excitingItem){
+        return toast.error('Oops,This Product is already In your cart')
+    }else{
+      Cart.products.push(item)
+    }
     
+    const totalPrice = addDecimal(Cart.products.reduce((acc,item) => acc + Number(item.price), 0))
+    setCart({...Cart, totalPrice : totalPrice})
+}
+
+function removeFromCart(id){
+  
+const removeProduct = Cart.products.filter((i) => i.id !== id)
+
+Cart.products = removeProduct
+const totalPrice = addDecimal(Cart.products.reduce((acc,item) => acc + Number(item.price), 0))
+    setCart({...Cart, totalPrice : totalPrice, products:removeProduct})
+
+}
+
     const [product,setProduct] = useState({
       title:null,
       price:null,
@@ -62,8 +95,9 @@ getProducts()
       }
       setProduct('')
     }
+
   return (
-    <Context.Provider value={{getProducts, product, setProduct, addProduct,allProducts,addToCart,cartItems,removeFromCart}}>
+    <Context.Provider value={{getProducts, product, setProduct, addProduct,allProducts,addToCart,removeFromCart,Cart}}>
        {props.children}
     </Context.Provider>
   )

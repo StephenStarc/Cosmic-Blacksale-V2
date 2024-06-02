@@ -32,7 +32,7 @@ Start the app: npm start
 <h3>Contributing:</h3>
 We welcome contributions from the community! If you have ideas for new products, features, or improvements, please submit a pull request or open an issue on GitHub.
 
-<h3>License:</h3>
+<h3>Tech Stack:</h3>
 <ol>
 <li>React
 </ol>

@@ -3,7 +3,7 @@
 <h2>Project Title: Cosmic Blacksale V2</h2>
 
 <h3>Description:</h3>
-<p>Welcome to the Multiverse Dollar Emporium! Here, you can explore a vast array of rare and exotic items from across the universe, all available for just a dollar. From mystical artifacts to futuristic gadgets, and even creatures from distant realms, our emporium has something for everyone.</p>
+<p>Welcome to the Cosmic Blacksale! Here, you can explore a vast array of rare and exotic items from across the universe. From mystical artifacts to futuristic gadgets, and even creatures from distant realms, our emporium has something for everyone.</p>
 
 <h3>Features:</h3>
 <h4>

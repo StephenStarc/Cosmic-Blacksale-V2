@@ -8,7 +8,7 @@ import { useEffect } from "react";
 export default function ProductDetail(){
 
 
-    const {allProducts} = useContext(Context)
+    const {allProducts, addToCart} = useContext(Context)
     const {id} = useParams()
     const product = allProducts.find((p)=>p.id === id)
     
@@ -35,7 +35,7 @@ export default function ProductDetail(){
             <h3 className=" text-lg  font-bold md:text-xl md:mt-2">{`Price : $${product.price}`}</h3>
             <div className="mt-6 flex gap-x-4 md:mt-2">
                 <Button variant='primary' 
-                    className="mt-3 hover:bg-white hover:text-black">
+                    className="mt-3 hover:bg-white hover:text-black" onClick={()=>addToCart(product)}>
                 Add to Cart
               </Button>
             </div>

@@ -18,6 +18,8 @@ import { Provider } from 'react-redux';
 import { store } from './components/redux/store.jsx';
 import AllProducts from './pages/AllProducts.jsx';
 import ProductDetail from './pages/ProductDetail.jsx';
+import SignUp from './pages/SignUp.jsx';
+import LogIn from './pages/LogIn.jsx';
 
 const router = createBrowserRouter([
   { path: "/", element: <Home/>, errorElement: <ErrorPage />},
@@ -27,6 +29,8 @@ const router = createBrowserRouter([
   { path: "/addproduct", element: <AddProducts />},
   { path: "/allproducts", element: <AllProducts />},
   { path: "/productInfo/:id", element: <ProductDetail />},
+  { path: "/signup", element: <SignUp />},
+  { path: "/login", element: <LogIn />},
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

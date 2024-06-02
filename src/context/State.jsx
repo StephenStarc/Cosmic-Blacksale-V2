@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Context from './Context'
-import { fireDB, auth } from '../firebase/FIrebaseConnect'
+import { fireDB, auth } from '../firebase/FirebaseConnect'
 import { getFirestore , collection, onSnapshot, Timestamp, addDoc} from 'firebase/firestore'
 import { toast } from 'react-toastify'
 

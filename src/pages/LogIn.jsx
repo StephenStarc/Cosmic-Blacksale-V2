@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import { Button, Input, Label, Google } from "@relume_io/relume-ui";
+import { Link } from "react-router-dom";
 
 export default function LogIn(props){
   const {
-    logo,
     signUpText,
     signUpLink,
     title,
-    description,
     logInButton,
     logInWithGoogleButton,
     forgotPassword,
-    footerText,
   } = {
     ...Login1Defaults,
     ...props,
@@ -30,22 +28,25 @@ export default function LogIn(props){
       <div className="relative flex min-h-svh flex-col items-stretch justify-center overflow-auto py-24 lg:py-20">
         <div className="absolute bottom-auto left-0 right-0 top-0 flex h-16 w-full items-center justify-between md:h-18">
           <div>
-            <img src={logo.src} alt={logo.alt} />
+          <Link to='/'>
+        <h1 className=' text-3xl font-bold font-playfair text-black text-black-600 '>
+          Cosmic <span className='bg-black text-white'>BlackSale</span>
+          </h1>
+          </Link>
           </div>
           <div className="inline-flex gap-x-1">
             <p className="hidden md:block">{signUpText}</p>
-            <a
-              href={signUpLink.url}
+            <Link
+              to={signUpLink.url}
               className="underline ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-primary focus-visible:ring-offset-2"
             >
               {signUpLink.text}
-            </a>
+            </Link>
           </div>
         </div>
         <div className="container max-w-sm">
-          <div className="mb-6 text-center md:mb-8">
-            <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{title}</h1>
-            <p className="md:text-md">{description}</p>
+          <div className="mb-4 text-center md:mb-6">
+            <h1 className="mb-5 text-4xl font-bold md:mb-6 md:text-6xl lg:text-7xl">{title}</h1>
           </div>
           <form className="grid grid-cols-1 gap-6" onSubmit={handleSubmit}>
             <div className="grid w-full items-center">
@@ -99,9 +100,6 @@ export default function LogIn(props){
             </a>
           </div>
         </div>
-        <footer className="absolute bottom-0 left-0 right-0 top-auto flex h-16 w-full items-center justify-center md:h-18">
-          <p className="text-sm">{footerText}</p>
-        </footer>
       </div>
     </section>
   );
@@ -115,10 +113,9 @@ const Login1Defaults = {
   signUpText: "Don't have an account?",
   signUpLink: {
     text: "Sign up",
-    url: "#",
+    url: "/signup",
   },
   title: "Log In",
-  description: "Lorem ipsum dolor sit amet adipiscing elit.",
   logInButton: {
     title: "Log in",
   },
@@ -130,7 +127,6 @@ const Login1Defaults = {
   forgotPassword: {
     text: "Forgot your password?",
     url: "#",
-  },
-  footerText: "© 2024 Relume",
+  }
 };
 

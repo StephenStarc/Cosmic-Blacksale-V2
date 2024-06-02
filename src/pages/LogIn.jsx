@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { Button, Input, Label, Google } from "@relume_io/relume-ui";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../firebase/FirebaseConnect";
+import {signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "firebase/auth";
+import { toast } from "react-toastify";
+import { Navigate } from "react-router-dom";
 export default function LogIn(props){
+
+  const navigate = useNavigate()
   const {
     signUpText,
     signUpLink,
@@ -18,11 +23,40 @@ export default function LogIn(props){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log({ email, password });
-  };
+  
+  const regexPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
+  const emailLoginHandler = (event) => {
+    event.preventDefault();
+    if(email.match(regexPattern) && email != '' && password != ''){
+      
+      signInWithEmailAndPassword(auth, email, password)
+  .then(() => {
+    toast.success('Logged In Successfully')
+    navigate('/')
+  })
+  .catch((error) => {
+    const errorMessage = error.message;
+    toast.error(errorMessage)
+  });
+    }else{
+      toast.error('Please Enter All the Fields')
+  };
+    }
+
+
+  const googleLoginHandler = (event) => {
+    event.preventDefault();
+    const provider =  new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+  .then(() => {
+    toast.success('Logged In Successfully')
+    navigate('/')
+  }).catch((error) => {
+    const errorMessage = error.message;
+    toast.error(errorMessage)
+  });
+  }
   return (
     <section className="px-[5%]">
       <div className="relative flex min-h-svh flex-col items-stretch justify-center overflow-auto py-24 lg:py-20">
@@ -48,7 +82,7 @@ export default function LogIn(props){
           <div className="mb-4 text-center md:mb-6">
             <h1 className="mb-5 text-4xl font-bold md:mb-6 md:text-6xl lg:text-7xl">{title}</h1>
           </div>
-          <form className="grid grid-cols-1 gap-6" onSubmit={handleSubmit}>
+          <form className="grid grid-cols-1 gap-6" >
             <div className="grid w-full items-center">
               <Label htmlFor="email" className="mb-2">
                 Email*
@@ -77,6 +111,7 @@ export default function LogIn(props){
                 size={logInButton.size}
                 iconLeft={logInButton.iconLeft}
                 iconRight={logInButton.iconRight}
+                onClick={emailLoginHandler}
               >
                 {logInButton.title}
               </Button>
@@ -86,6 +121,7 @@ export default function LogIn(props){
                 iconLeft={logInWithGoogleButton.iconLeft}
                 iconRight={logInWithGoogleButton.iconRight}
                 className="gap-x-3"
+                onClick={googleLoginHandler}
               >
                 {logInWithGoogleButton.title}
               </Button>
